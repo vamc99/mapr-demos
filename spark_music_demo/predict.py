@@ -23,6 +23,8 @@ results_1 = test.map(lambda p: (p.label, model_1.predict(p.features)))
 
 # calculate the error
 err_1 = results_1.filter(lambda (v, p): v != p).count() / float(te_count)
+# if you are using python3 use the following code
+# err_1 = results_1.filter(lambda vp: vp[0] != vp[1]).count() / float(te_count)
 
 # train SGD model on the training data
 model_2 = LogisticRegressionWithSGD.train(train)
@@ -32,6 +34,8 @@ results_2 = test.map(lambda p: (p.label, model_2.predict(p.features)))
 
 # calculate the error
 err_2 = results_2.filter(lambda (v, p): v != p).count() / float(te_count)
+# if you are using python3 use the following code
+# err_2 = results_2.filter(lambda vp: vp[0] != vp[1]).count() / float(te_count)
 
 print "Results"
 print "-------"
